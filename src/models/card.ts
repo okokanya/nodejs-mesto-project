@@ -4,7 +4,6 @@
 // owner — ссылка на модель автора карточки, тип ObjectId, обязательное поле;
 // likes — список лайкнувших пост пользователей, массив ObjectId, по умолчанию — пустой массив (поле default);
 // createdAt — дата создания, тип Date, значение по умолчанию Date.now.
-
 import { Types, model, Schema } from "mongoose";
 
 interface ICard {
@@ -14,22 +13,21 @@ interface ICard {
   likes: Types.ObjectId[];
   createdAt: Date;
 }
-
 const cardSchema: Schema<ICard> = new Schema({
   name: {
     type: String,
-    required: [true, 'Поле "name" должно быть заполнено'],
+    required: true,
     minlength: [2, 'Минимальная длина поля "name" - 2'],
     maxlength: [30, 'Максимальная длина поля "name" - 30'],
   },
   link: {
     type: String,
-    required: true
+    required: true,
   },
   owner: {
     type: Schema.Types.ObjectId,
     ref: "user",
-    required: true
+    required: true,
   },
   likes: {
     type: [Schema.Types.ObjectId],
@@ -41,5 +39,4 @@ const cardSchema: Schema<ICard> = new Schema({
     default: Date.now,
   },
 });
-
 export default model<ICard>("card", cardSchema);
