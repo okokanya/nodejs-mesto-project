@@ -8,12 +8,14 @@
 //   "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flower_poster_2.jpg/330px-Flower_poster_2.jpg"
 // }
 
-import { model, Schema } from "mongoose";
+import { model, Schema } from 'mongoose';
+
 interface IUser {
   name: string;
   about: string;
   avatar: string;
 }
+
 const userSchema: Schema<IUser> = new Schema(
   {
     name: {
@@ -33,7 +35,7 @@ const userSchema: Schema<IUser> = new Schema(
       required: [true, 'Поле "avatar" должно быть заполнено'],
     },
   },
-  { versionKey: false }
+  { versionKey: false },
 );
 
-export default model<IUser>("user", userSchema);
+export default model<IUser>('user', userSchema);

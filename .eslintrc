@@ -30,14 +30,25 @@
       ]
   },
   "rules": {
-      "import/extensions": [
-          "error",
-          "ignorePackages",
-          {
-              "js": "never",
-              "ts": "never"
-          }
-      ],
-      "no-underscore-dangle": ["error", { "allow": ["_id"] }]
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "ts": "never",
+        "tsx": "never",
+        "json": "always"
+      }
+    ],
+    "allowImportingTsExtensions": 0,
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }]
+      // "import/extensions": [
+      //     "error",
+      //     "ignorePackages",
+      //     {
+      //         "js": "never",
+      //         "ts": "never"
+      //     }
+      // ]
   }
 }

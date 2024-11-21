@@ -2,9 +2,10 @@
 // name — имя карточки, строка от 2 до 30 символов, обязательное поле;
 // link — ссылка на картинку, строка, обязательно поле.
 // owner — ссылка на модель автора карточки, тип ObjectId, обязательное поле;
-// likes — список лайкнувших пост пользователей, массив ObjectId, по умолчанию — пустой массив (поле default);
+// likes — список лайкнувших пост пользователей, массив ObjectId,
+// по умолчанию — пустой массив (поле default);
 // createdAt — дата создания, тип Date, значение по умолчанию Date.now.
-import { Types, model, Schema } from "mongoose";
+import { Types, model, Schema } from 'mongoose';
 
 interface ICard {
   name: string;
@@ -26,12 +27,12 @@ const cardSchema: Schema<ICard> = new Schema({
   },
   owner: {
     type: Schema.Types.ObjectId,
-    ref: "user",
+    ref: 'user',
     required: true,
   },
   likes: {
     type: [Schema.Types.ObjectId],
-    ref: "user",
+    ref: 'user',
     default: [],
   },
   createdAt: {
@@ -39,4 +40,4 @@ const cardSchema: Schema<ICard> = new Schema({
     default: Date.now,
   },
 });
-export default model<ICard>("card", cardSchema);
+export default model<ICard>('card', cardSchema);
